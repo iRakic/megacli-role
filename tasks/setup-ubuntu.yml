@@ -1,0 +1,19 @@
+---
+- name: Import HWRAID repository key
+  ansible.builtin.apt_key:
+    url: https://hwraid.le-vert.net/ubuntu/hwraid.le-vert.net.gpg.key
+    state: present
+
+- name: Add RAID tools repository
+  ansible.builtin.apt_repository:
+    repo: "deb http://hwraid.le-vert.net/ubuntu focal main"
+    state: present
+    filename: raidtoolRepo
+
+- name: Install megacli and megaclisas-status
+  ansible.builtin.apt:
+    name:
+      - megacli
+      - megaclisas-status
+    state: present
+    update_cache: yes
