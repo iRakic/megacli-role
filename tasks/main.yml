@@ -1,4 +1,4 @@
 ---
-
-- ansible.builtin.include_tasks: setup-ubuntu.yml
+- name: Include general tasks for Ubuntu
+  ansible.builtin.include_tasks: setup-ubuntu.yml
   when: ansible_distribution == 'Ubuntu'

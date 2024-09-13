@@ -1,4 +1,8 @@
 ---
+- name: Include tasks for Ubuntu 24 (Noble)
+  ansible.builtin.include_tasks: setup-ubuntu24.yml
+  when: ansible_distribution == 'Ubuntu' and ansible_distribution_release == 'noble'
+  
 - name: Import HWRAID repository key
   ansible.builtin.apt_key:
     url: https://hwraid.le-vert.net/ubuntu/hwraid.le-vert.net.gpg.key
